@@ -1,0 +1,18 @@
+services:
+  base:
+    image: pinocchio_ros_cpp:base
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        ROS_DISTRO: humble
+      target: base
+    # Interactive shell
+    stdin_open: true
+    tty: true
+    # Networking and IPC for ROS 2
+    network_mode: host
+    ipc: host
+    # Mount files
+    volumes:
+      - ./pinocchio_ros_example/:/workspace/src/pinocchio_ros_example/
