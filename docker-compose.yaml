@@ -1,11 +1,11 @@
 services:
   base:
-    image: pinocchio_ros_cpp:base
+    image: pinocchio_ros_cpp:${ROS_DISTRO}
     build:
       context: .
       dockerfile: Dockerfile
       args:
-        ROS_DISTRO: humble
+        ROS_DISTRO: ${ROS_DISTRO}
       target: base
     # Interactive shell
     stdin_open: true
